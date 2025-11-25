@@ -1,7 +1,7 @@
 "use client";
 import React from 'react';
 
-export default function TestimonialsPage() {
+export default function Ourstudent() {
   return (
     <div className=" py-20 px-4">
       <div className="max-w-6xl mx-auto">

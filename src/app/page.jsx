@@ -1,9 +1,29 @@
-import Image from "next/image";
+
+import Hero from "@/Components/Hero/Hero";
+import Ourstudent from "@/Components/OurStudents/Ourstudents";
+import PopularCourses from "@/Components/PopularCourse/PopularCourse";
+import WhyChoose from "@/Components/WhyChoose/WhyChoose";
+
+
+
+
 
 export default function Home() {
   return (
-    <div className="p-6 bg-zinc-50 dark:bg-black ">
-      
+    <div className="flex  items-center justify-center bg-zinc-50 font-sans dark:bg-black">
+      <div className="">
+          <Hero></Hero>
+          <WhyChoose></WhyChoose>
+          <PopularCourses></PopularCourses>
+          <Ourstudent></Ourstudent>
+          
+          <div>
+            
+          </div>
+      </div>
+      <div>
+        
+      </div>
     </div>
   );
 }
