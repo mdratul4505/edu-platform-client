@@ -1,12 +1,9 @@
 'use client'
 import { useState } from 'react';
 import {useSignInWithEmailAndPassword} from 'react-firebase-hooks/auth'
-
+import {auth,provider} from '@/app/firebase/config'
 import { useRouter } from 'next/navigation';
 import { signInWithPopup } from "firebase/auth"
-import { auth, provider } from '../Firebase/config';
-
-
 
 
 const SignIn = () => {

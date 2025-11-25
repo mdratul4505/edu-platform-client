@@ -42,7 +42,7 @@ export default function Navbar() {
            <li><Link href="/add">Add Courses</Link></li>
           <li><Link href="/manage">Manage Courses </Link></li>
           <li><Link href="/about">About</Link></li>
-          <li><Link href="/services">Services</Link></li>
+          {/* <li><Link href="/services">Services</Link></li> */}
          
         </ul>
 
@@ -74,7 +74,7 @@ export default function Navbar() {
           <li><Link href="/add" onClick={() => setOpen(false)}>Add Courses</Link></li>
           <li><Link  href="/manage" onClick={() => setOpen(false)}>Manage Courses</Link></li>
           <li><Link href="/about" onClick={() => setOpen(false)}>About</Link></li>
-          <li><Link href="/services" onClick={() => setOpen(false)}>Services</Link></li>
+          {/* <li><Link href="/services" onClick={() => setOpen(false)}>Services</Link></li> */}
           
 
           <hr className="my-2" />

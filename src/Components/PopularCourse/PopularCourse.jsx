@@ -9,7 +9,7 @@ const PopularCourses = () => {
     // Fetch courses from backend
     const fetchCourses = async () => {
       try {
-        const res = await fetch("https://my-fast-next-server.vercel.app/courses");
+        const res = await fetch("https://edu-server-api.vercel.app/courses");
         const data = await res.json();
         setCourses(data.slice(0, 6)); // Only take the first 6 courses
       } catch (error) {
@@ -44,9 +44,7 @@ const PopularCourses = () => {
               <div
                 className="w-full h-full bg-cover bg-center"
                 style={{ backgroundImage: `url(${course.image})` }}
-              >
-
-              </div>
+              ></div>
             </div>
 
             {/* Card Content */}
@@ -72,7 +70,6 @@ const PopularCourses = () => {
           </div>
         ))}
       </div>
-
     </div>
   );
 };
