@@ -56,7 +56,7 @@ const PopularCourses = () => {
                   {course.title}
                 </h3>
                 <p className="mt-1 text-gray-400 text-sm">
-                  {course.instructor || "Unknown Instructor"}
+                  {course.username || "Unknown Instructor"}
                 </p>
                 <p className="mt-4 text-3xl font-bold text-cyan-400">
                   ${course.price || "0"}

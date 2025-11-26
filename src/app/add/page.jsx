@@ -1,14 +1,16 @@
+
+
+
+
 "use client";
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-
 import { useRouter } from "next/navigation";
 import { auth } from "../Firebase/config";
 
 export default function Postpage() {
   const [user] = useAuthState(auth);
   const router = useRouter();
-
 
   useEffect(() => {
     if (!user) {
@@ -24,6 +26,8 @@ export default function Postpage() {
     date: "",
     priority: "",
     image: "",
+    payment: "",
+    username: "",
   });
 
   const handleChange = (e) => {
@@ -46,16 +50,15 @@ export default function Postpage() {
 
   return (
     <div className="max-w-lg mx-auto p-6 bg-gray-900 text-white rounded-lg shadow-lg mt-8">
-      <h2 className="text-2xl font-bold mb-6 text-teal-400 text-center">
-        Add Course
-      </h2>
+      <h2 className="text-2xl font-bold mb-6 text-teal-400 text-center">Add Course</h2>
 
       <form onSubmit={handleSubmit} className="space-y-4">
+
         <input
           type="text"
           name="title"
           placeholder="Title"
-          className="w-full p-3 rounded-md border border-gray-700 bg-gray-800 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition"
+          className="w-full p-3 rounded-md border border-gray-700 bg-gray-800 focus:ring-2 focus:ring-teal-500"
           value={data.title}
           onChange={handleChange}
           required
@@ -65,7 +68,7 @@ export default function Postpage() {
           type="text"
           name="shortDesc"
           placeholder="Short Description"
-          className="w-full p-3 rounded-md border border-gray-700 bg-gray-800 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition"
+          className="w-full p-3 rounded-md border border-gray-700 bg-gray-800 focus:ring-2 focus:ring-teal-500"
           value={data.shortDesc}
           onChange={handleChange}
           required
@@ -74,8 +77,8 @@ export default function Postpage() {
         <textarea
           name="fullDesc"
           placeholder="Full Description"
-          className="w-full p-3 rounded-md border border-gray-700 bg-gray-800 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition"
           rows={4}
+          className="w-full p-3 rounded-md border border-gray-700 bg-gray-800 focus:ring-2 focus:ring-teal-500"
           value={data.fullDesc}
           onChange={handleChange}
         />
@@ -85,7 +88,7 @@ export default function Postpage() {
             type="number"
             name="price"
             placeholder="Price"
-            className="w-full p-3 rounded-md border border-gray-700 bg-gray-800 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition"
+            className="w-full p-3 rounded-md border border-gray-700 bg-gray-800 focus:ring-2 focus:ring-teal-500"
             value={data.price}
             onChange={handleChange}
           />
@@ -93,7 +96,7 @@ export default function Postpage() {
           <input
             type="date"
             name="date"
-            className="w-full p-3 rounded-md border border-gray-700 bg-gray-800 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition"
+            className="w-full p-3 rounded-md border border-gray-700 bg-gray-800 focus:ring-2 focus:ring-teal-500"
             value={data.date}
             onChange={handleChange}
           />
@@ -101,7 +104,7 @@ export default function Postpage() {
 
         <select
           name="priority"
-          className="w-full p-3 rounded-md border border-gray-700 bg-gray-800 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition"
+          className="w-full p-3 rounded-md border border-gray-700 bg-gray-800 focus:ring-2 focus:ring-teal-500"
           value={data.priority}
           onChange={handleChange}
         >
@@ -115,14 +118,35 @@ export default function Postpage() {
           type="text"
           name="image"
           placeholder="Image URL"
-          className="w-full p-3 rounded-md border border-gray-700 bg-gray-800 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition"
+          className="w-full p-3 rounded-md border border-gray-700 bg-gray-800 focus:ring-2 focus:ring-teal-500"
           value={data.image}
+          onChange={handleChange}
+        />
+
+        {/* Username Field */}
+        <input
+          type="text"
+          name="username"
+          placeholder="Your Name"
+          className="w-full p-3 rounded-md border border-gray-700 bg-gray-800 focus:ring-2 focus:ring-teal-500"
+          value={data.username}
+          onChange={handleChange}
+          required
+        />
+
+        {/* Payment Field */}
+        <input
+          type="number"
+          name="payment"
+          placeholder="Payment Amount"
+          className="w-full p-3 rounded-md border border-gray-700 bg-gray-800 focus:ring-2 focus:ring-teal-500"
+          value={data.payment}
           onChange={handleChange}
         />
 
         <button
           type="submit"
-          className="w-full bg-teal-500 hover:bg-teal-600 transition text-white font-semibold p-3 rounded-md shadow-md"
+          className="w-full bg-teal-500 hover:bg-teal-600 text-white font-semibold p-3 rounded-md shadow-md"
         >
           Submit
         </button>
@@ -130,3 +154,4 @@ export default function Postpage() {
     </div>
   );
 }
+
