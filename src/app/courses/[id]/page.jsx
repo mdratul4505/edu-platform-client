@@ -1,8 +1,10 @@
+
+
 import Link from "next/link";
 
 export default async function DetailPage({ params }) {
-  // unwrap the params promise
-  const { id } = await params;
+
+  const { id } = await params; // FIXED ⭐
 
   const res = await fetch(`https://edu-server-api.vercel.app/courses/${id}`, {
     cache: "no-store",
@@ -17,9 +19,8 @@ export default async function DetailPage({ params }) {
 
   return (
     <div className="min-h-screen bg-gray-500">
-      {/* Banner */}
       <div
-        className="h-64 bg-cover bg-center relative"
+        className="h-80 bg-cover bg-center relative"
         style={{
           backgroundImage: `url(${course.image || "/placeholder-banner.jpg"})`,
         }}
@@ -27,8 +28,7 @@ export default async function DetailPage({ params }) {
         <div className="absolute inset-0 bg-gradient-to-t from-gray-900/30 to-purple-500/50"></div>
       </div>
 
-      <div className="max-w-7xl  p-6 sticky top-6 mx-auto px-4 sm:px-6 lg:px-8 -mt-48">
-        {/* Back button */}
+      <div className="max-w-7xl p-6 sticky top-6 mx-auto px-4 sm:px-6 lg:px-8 -mt-48">
         <Link
           href="/courses"
           className="inline-block px-4 py-2 mb-8 text-sm font-medium text-gray-700 bg-white rounded-lg shadow hover:bg-gray-100"
@@ -37,7 +37,6 @@ export default async function DetailPage({ params }) {
         </Link>
 
         <div className="flex flex-col lg:flex-row gap-8 ">
-          {/* Main content */}
           <div className="lg:w-2/3 bg-white p-6 rounded-xl shadow-lg">
             <span className="inline-block bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full mb-4">
               {category}
@@ -48,7 +47,6 @@ export default async function DetailPage({ params }) {
             </h1>
             <p className="text-gray-500 mb-6">{instructor}</p>
 
-            {/* Stats */}
             <div className="flex items-center space-x-6 text-sm text-gray-600 mb-10">
               <div className="flex items-center">
                 <span className="mr-2">🕒</span>
@@ -63,7 +61,6 @@ export default async function DetailPage({ params }) {
               </div>
             </div>
 
-            {/* About */}
             <div className="mb-6">
               <h2 className="text-2xl font-bold text-gray-900 mb-3">
                 About This Course
@@ -76,7 +73,6 @@ export default async function DetailPage({ params }) {
             </div>
           </div>
 
-          {/* Sidebar */}
           <div className="lg:w-1/3">
             <div className="bg-white p-6 rounded-xl shadow-lg sticky top-6 border border-gray-100">
               <div className="text-4xl font-extrabold text-blue-600 mb-6 text-center">
@@ -107,3 +103,4 @@ export default async function DetailPage({ params }) {
     </div>
   );
 }
+

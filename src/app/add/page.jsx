@@ -8,7 +8,7 @@ import { auth } from "../Firebase/config";
 export default function Postpage() {
   const [user] = useAuthState(auth);
   const router = useRouter();
-  console.log({ user });
+
 
   useEffect(() => {
     if (!user) {
@@ -41,7 +41,6 @@ export default function Postpage() {
     });
 
     const result = await res.json();
-    console.log(result);
     alert("Course Added Successfully!");
   };
 

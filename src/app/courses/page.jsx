@@ -9,7 +9,7 @@ export default async function coursePage() {
   });
 
   const courses = await res.json();
-  console.log(courses);
+
 
   return (
     <div className="p-6">
